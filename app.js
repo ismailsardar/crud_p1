@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cors());
 app.use(morgan('dev'));
+app.use('/uplodes', express.static(path.join(__dirname, 'uplodes')));
 //file read
 readdirSync('./routes/').map( file => app.use('/api/v1', require(`./routes/${file}`)));
 // readdirSync("./routes").map(r => app.use("/api/v1", require(`./routes/${r}`))) 
