@@ -10,6 +10,7 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const morgan = require('morgan');
 
 const app = express();
 require('dotenv').config();
@@ -18,6 +19,7 @@ require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cors());
+app.use(morgan('dev'));
 //file read
 readdirSync('./routes/').map( file => app.use('/api/v1', require(`./routes/${file}`)));
 // readdirSync("./routes").map(r => app.use("/api/v1", require(`./routes/${r}`))) 

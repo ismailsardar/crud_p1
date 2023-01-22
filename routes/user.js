@@ -5,12 +5,13 @@
 **/
 //packeg require
 const express = require('express');
-const user = require('../controllers/usercon');
+const users = require('../controllers/user');
 const router = express.Router();
 
 
-//trst route
-router.get('/', user.test);
+//trst route 
+// router.get('/', users.myTest);
+router.post('/create', users.creat);
 
 //router exports
 module.exports = router;
